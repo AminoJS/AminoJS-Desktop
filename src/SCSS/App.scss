@@ -1,0 +1,19 @@
+#header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #icon{
+        width: 5em;
+        height: 5em;
+        background: url('https://avatars1.githubusercontent.com/u/38384013?v=4') no-repeat center;
+        background-size: contain;
+        display: block;
+        margin: 1em;
+    }
+}
+
+#title{
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0.5em;
+}

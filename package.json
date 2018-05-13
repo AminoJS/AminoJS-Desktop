@@ -7,7 +7,7 @@
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
-    "babel-loader": "7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-preset-react-app": "^3.1.1",
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -47,7 +47,9 @@
   "devDependencies": {
     "electron": "^2.0.0",
     "electron-builder": "^20.13.3",
-    "foreman": "^2.0.0"
+    "foreman": "^2.0.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1"
   },
   "homepage": "./",
   "main": "electron/main.js",
@@ -56,7 +58,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "electron": "electron ."
+    "electron": "electron .",
+    "ebuild":"yarn build && node_modules/.bin/build"
   },
   "description": "Amino Desktop Application",
   "build": {
