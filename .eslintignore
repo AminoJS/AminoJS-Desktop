@@ -1,0 +1,6 @@
+docs/*
+test/*
+examples/*
+node_modules
+config
+scripts
