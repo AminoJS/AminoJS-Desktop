@@ -12,7 +12,14 @@ yarn ebuild
 ```
 
 ---
-## Development Error
+
+## Foreman Development Tips
+
+If you are trying to close the Electron application, please DO NOT just simply click the "X" button provided by your system GUI manager, please do navigate down to your Terminal, and terminate the Foreman operation by hitting either `CMD + C` or `CTRL + C`
+
+---
+
+## Foreman Development Error
 If you receive the follow error message
 
 ![Error message](https://i.imgur.com/r6FOg6u.png)
