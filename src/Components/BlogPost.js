@@ -12,6 +12,11 @@ import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import LazyLoad from 'react-lazyload';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import { clipboard } from 'electron';
+import { SnackbarEmitter } from './App';
 
 const styles = () => ({
     avatar: {
@@ -23,7 +28,38 @@ class BlogPost extends React.Component {
 
     state = {
         favorite: false,
+        anchorEl: null,
+
+        menuOptions: [
+            {
+                title: 'Report',
+                action: this.mockAction,
+            },
+            {
+                title: 'Copy Link',
+                action: this.copyLink,
+            },
+            {
+                title: 'Save this post',
+                action: this.mockAction,
+            },
+            {
+                title: 'Flag for Review',
+                action: this.mockAction,
+            },
+        ]
     };
+
+    mockAction(){
+        console.log('U just clicked one of the option inside the menu');
+    }
+
+    copyLink(){
+        SnackbarEmitter.emit('push', {
+            message: 'URL Copied',
+        });
+        clipboard.writeText('https://google.com/', 'selection');
+    }
 
     handleExpandClick = () => {  
         this.setState({ expanded: !this.state.expanded });
@@ -39,8 +75,22 @@ class BlogPost extends React.Component {
         });
     }
 
+    closeMenu(){
+        this.setState({
+            anchorEl: null,
+        });
+    }
+
+    openMenu(e){
+        this.setState({
+            anchorEl: e.currentTarget,
+        });
+    }
+
     render() {
         const { classes, post } = this.props;
+
+        const { anchorEl } = this.state;
 
         const postHeight = 
                             post.media_list ?
@@ -58,12 +108,48 @@ class BlogPost extends React.Component {
                         height: postHeight,
                     }}
                 >
+
+                    <LazyLoad>
+                        <Menu
+                            id="long-menu"
+                            anchorEl={anchorEl}
+                            open={Boolean(anchorEl)}
+                            onClose={() => this.closeMenu()}
+                            PaperProps={{
+                                style: {
+                                    maxHeight: (this.state.menuOptions.length + 20) * 6,
+                                    width: 200,
+                                },
+                            }}
+                        >
+                            {
+                                (() => {
+                                    
+                                    const buttons = [];
+                                    this.state.menuOptions.map(option => {
+                                        return buttons.push(
+                                            <MenuItem
+                                                onClick={() => {
+                                                    option.action();
+                                                    this.closeMenu();
+                                                }}
+                                            >{option.title}</MenuItem>
+                                        );
+                                    });
+                                    return buttons;
+                                })()
+                            }
+                        </Menu>
+                    </LazyLoad>
+
                     <CardHeader
                         avatar={    
                             <Avatar alt={post.author.name} className={classes.avatar} src={post.author.profile_picture}></Avatar>
                         }
                         action={
-                            <IconButton>
+                            <IconButton
+                                onClick={e => this.openMenu(e)}
+                            >
                                 <MoreVertIcon />
                             </IconButton>
                         }
