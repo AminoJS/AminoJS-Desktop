@@ -26,6 +26,7 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "^7.8.2",
     "extract-text-webpack-plugin": "3.0.2",
+    "fbemitter": "^2.1.1",
     "file-loader": "1.1.5",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
@@ -38,6 +39,7 @@
     "react": "^16.3.1",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.3.1",
+    "react-lazyload": "^2.3.0",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -52,7 +54,8 @@
     "electron-builder": "^20.13.3",
     "foreman": "^2.0.0",
     "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1"
+    "sass-loader": "^7.0.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "homepage": "./",
   "main": "electron/main.js",
