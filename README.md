@@ -5,7 +5,6 @@ Run the following command to start the React and Electron process
 ```bash
 yarn dev
 ```
-
 To build a production ready Electron application, run the following command
 ```bash
 yarn ebuild
@@ -36,3 +35,7 @@ killall node
 Open the Task Manger and find the `Node.js Server-side JavaScript` and click the `End Task` button at the lower right corner
 
 ![Task Manger](https://i.imgur.com/857F9qk.png)
+
+## Installing Extra Packages
+
+If you are indeed running the `yarn dev` and has already started a Foreman process in the background, installing a new packages require you to terminate the Foreman process before the install script taking place or else you will get an error saying some files has been locked by Foreman
