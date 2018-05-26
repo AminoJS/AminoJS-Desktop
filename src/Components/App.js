@@ -2,7 +2,7 @@ import '../SCSS/App.scss';
 import React from 'react';
 import TitleBar from './TitleBar';
 import Communities from './Communities';
-import FeaturedPosts from './FeaturedPosts';
+import Router from '../Router';
 import Snackbar from '@material-ui/core/Snackbar';
 import Button from '@material-ui/core/Button';
 import { EventEmitter } from 'fbemitter';
@@ -50,7 +50,7 @@ export default class App extends React.Component {
                 <div id="main_content"
                     style={{
                         position: 'fixed',
-                        top: '2em',
+                        top: '1.5em',
                         left: '5.4em',
                         background: '#36393F',
                         width: '100vw',
@@ -59,7 +59,10 @@ export default class App extends React.Component {
                         padding: '0.6em',
                     }}
                 >
-                    <FeaturedPosts />
+                    
+                    {/* Pages */}
+                    <Router />
+
                 </div>
 
                 <Snackbar

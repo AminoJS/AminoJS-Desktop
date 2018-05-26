@@ -1,6 +1,6 @@
 import '../SCSS/App.scss';
 import React from 'react';
-import BlogPost from './BlogPost';
+import BlogPost from '../Components/BlogPost';
 
 export default class FeaturedPosts extends React.Component {
 

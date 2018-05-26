@@ -42,7 +42,7 @@ export default class Communities extends React.Component {
                     height: '100vh',
                     position: 'fixed',
                     padding: '0.7em',
-                    marginTop: '2em',
+                    marginTop: '1.5em',
                 }}
             >
                 <div id="communities">
