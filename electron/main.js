@@ -12,7 +12,11 @@ function createWindow () {
             protocol: 'file:',
             slashes: true
         });
-    win = new BrowserWindow({width: 800, height: 600});
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        frame: false,
+    });
     win.loadURL(startUrl);
     win.on('closed', () => win = null);
 }
