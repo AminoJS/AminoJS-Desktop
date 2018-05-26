@@ -40,6 +40,16 @@ export default class TitleBar extends React.Component {
                 >
                 </div>
 
+                <div id="drag_bar"
+                    style={{
+                        width: '88%',
+                        height: '100%',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                    }}
+                ></div>
+
                 <div
                     id="win_control_buttons"
                     style={{
