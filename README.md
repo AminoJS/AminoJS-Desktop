@@ -39,3 +39,15 @@ Open the Task Manger and find the `Node.js Server-side JavaScript` and click the
 ## Installing Extra Packages
 
 If you are indeed running the `yarn dev` and has already started a Foreman process in the background, installing a new packages require you to terminate the Foreman process before the install script taking place or else you will get an error saying some files has been locked by Foreman
+
+## Development Utils Functions
+
+### Login
+```
+window.dev.login();
+```
+
+### Logout
+```
+window.dev.logout();
+```
