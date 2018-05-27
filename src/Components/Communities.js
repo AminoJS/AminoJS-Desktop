@@ -1,5 +1,7 @@
 import '../SCSS/App.scss';
 import React from 'react';
+import {Typography} from '@material-ui/core';
+import '../SCSS/Communities.scss';
 
 export default class Communities extends React.Component {
 
@@ -51,7 +53,7 @@ export default class Communities extends React.Component {
                             const communities = [];
                             this.state.communities.map(community => {
                                 return communities.push(
-                                    <div key={community.id}>
+                                    <div key={community.id} className="communite_container">
                                         <div
                                             style={{
                                                 width: '100%',
@@ -64,6 +66,19 @@ export default class Communities extends React.Component {
                                             }}
                                         >
                                         </div>
+
+                                        <div className="hover_title">
+                                            <Typography
+                                                style={{
+                                                    color: '#FFF',
+                                                }}
+                                            >
+                                                {
+                                                    community.title
+                                                }
+                                            </Typography>
+                                        </div>
+
                                     </div>
                                 );
                             });
