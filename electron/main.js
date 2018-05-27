@@ -13,7 +13,7 @@ function createWindow () {
             slashes: true
         });
     win = new BrowserWindow({
-        width: 800,
+        width: 1024,
         height: 600,
         frame: false,
     });

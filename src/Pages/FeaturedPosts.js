@@ -9,7 +9,7 @@ export default class FeaturedPosts extends React.Component {
         posts: [
             {
                 id: '001',
-                title: this.sid,
+                title: 'One post',
                 content: 'Something about something',
                 author: {
                     id: 'some_ppl_01',
@@ -64,7 +64,7 @@ export default class FeaturedPosts extends React.Component {
         return (
             <div id="featured_posts_container">
                 
-                <div id="posts"  style={{overflow: 'hidden'}}>
+                <div id="posts">
                     {
                         (() => {
                             const posts = [];

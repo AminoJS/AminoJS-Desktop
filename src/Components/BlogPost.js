@@ -104,8 +104,8 @@ class BlogPost extends React.Component {
                         background: '#70767F',
                         borderRadius: '4px 4px 0px 0px',
                         marginBottom: '1.5em',
-                        width: '80vw',
-                        height: postHeight,
+                        width: '57vw',
+                        height: postHeight
                     }}
                 >
 

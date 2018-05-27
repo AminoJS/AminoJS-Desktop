@@ -40,7 +40,7 @@ export default class Communities extends React.Component {
             <div id="communities_container"
                 style={{
                     background: '#202225',
-                    width: '4em',
+                    width: '48px',
                     height: '100vh',
                     position: 'fixed',
                     padding: '0.7em',
@@ -56,13 +56,13 @@ export default class Communities extends React.Component {
                                     <div key={community.id} className="communite_container">
                                         <div
                                             style={{
-                                                width: '100%',
-                                                height: '4em',
+                                                width: '50px',
+                                                height: '50px',
                                                 background: `url(${community.picture}) no-repeat center skyblue`,
                                                 backgroundSize: 'contain',
                                                 borderRadius: '50%',
                                                 margin: '0.5em 0em',
-                                                cursor: 'pointer',
+                                                cursor: 'pointer'
                                             }}
                                         >
                                         </div>
@@ -70,7 +70,7 @@ export default class Communities extends React.Component {
                                         <div className="hover_title">
                                             <Typography
                                                 style={{
-                                                    color: '#FFF',
+                                                    color: '#FFF'
                                                 }}
                                             >
                                                 {

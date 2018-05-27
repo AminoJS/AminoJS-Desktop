@@ -62,29 +62,51 @@ export default class App extends React.Component {
             return (
                 <div>
                     <TitleBar />
-                    <Communities />
-                    <div id="main_content"
-                        style={{
-                            position: 'absolute',
+                    <Communities/>
+                    <div id="left_bar" style={{
+                        position: 'fixed',
+                        top: '1.5em',
+                        left: '70px',
+                        height:'100%',
+                        width: '240px',
+                        backgroundColor: '#2F3136' }}>
+                    </div>
+                    <div id="top_bar" style={{
+                        position: 'fixed',
+                        top: '1.5em',
+                        left: '314px',
+                        height:'48px',
+                        width: '100%',
+                        borderBottom: '1px solid #292B2E',
+                        backgroundColor: '#36393F' }}>
+                    </div>
+                    <div id="main_content" style={{
+                        position: 'absolute',
+                        top: '70px',
+                        left: '325px',
+                        margin: '0.6em', }}>
+                        
+                        <div style={{
+                            background: '#36393F',
+                            width: '100vw',
+                            height: '100vh',
+                            position: 'fixed',
                             top: '1.5em',
-                            left: '5.4em',
-                            margin: '0.6em',
-                        }}
-                    >
-                        <div
-                            style={{
-                                background: '#36393F',
-                                width: '100vw',
-                                height: '100vh',
-                                position: 'fixed',
-                                top: 0,
-                                left: 0,
-                                zIndex: -1,
-                            }}
-                        >
+                            left: '-25px',
+                            zIndex: -1, }}>
                             {/* Background color */}
                         </div>
                         <AppRouter />    
+                    </div>
+
+                    <div id="right_bar" style={{
+                        position: 'fixed',
+                        top: '73px',
+                        right: 0,
+                        height:'100%',
+                        width: '239px',
+                        backgroundColor: '#2F3136'
+                    }}>
                     </div>
     
                     <Snackbar
