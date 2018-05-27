@@ -56,9 +56,10 @@ export default class App extends React.Component {
 
     render(){
 
-        const sid = localStorage.getItem('sid');
+        const email = localStorage.getItem('email');
+        const password = localStorage.getItem('password');
 
-        if(sid !== null){
+        if(email !== null && password !== null){
             return (
                 <div>
                     <TitleBar />
