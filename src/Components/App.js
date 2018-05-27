@@ -60,21 +60,30 @@ export default class App extends React.Component {
 
         if(sid !== null){
             return (
-                <div id="home_page">
+                <div>
                     <TitleBar />
                     <Communities />
                     <div id="main_content"
                         style={{
-                            position: 'fixed',
+                            position: 'absolute',
                             top: '1.5em',
                             left: '5.4em',
-                            background: '#36393F',
-                            width: '100vw',
-                            height: '100vh',
-                            overflowX: 'scroll',
-                            padding: '0.6em',
+                            margin: '0.6em',
                         }}
                     >
+                        <div
+                            style={{
+                                background: '#36393F',
+                                width: '100vw',
+                                height: '100vh',
+                                position: 'fixed',
+                                top: 0,
+                                left: 0,
+                                zIndex: -1,
+                            }}
+                        >
+                            {/* Background color */}
+                        </div>
                         <AppRouter />    
                     </div>
     
