@@ -56,7 +56,8 @@ export default class TitleBar extends React.Component {
                         position: 'absolute',
                         top: 0,
                         right: 0,
-                        width: '10%',
+                        marginRight:'auto',
+                        width: 'auto',
                         height: '100%',
                     }}
                 >

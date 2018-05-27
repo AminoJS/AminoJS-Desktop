@@ -3,12 +3,13 @@ import React from 'react';
 import BlogPost from '../Components/BlogPost';
 
 export default class FeaturedPosts extends React.Component {
+    sid = localStorage.getItem('sid');
 
     state = {
         posts: [
             {
                 id: '001',
-                title: 'Something',
+                title: this.sid,
                 content: 'Something about something',
                 author: {
                     id: 'some_ppl_01',
@@ -63,7 +64,7 @@ export default class FeaturedPosts extends React.Component {
         return (
             <div id="featured_posts_container">
                 
-                <div id="posts">
+                <div id="posts"  style={{overflow: 'hidden'}}>
                     {
                         (() => {
                             const posts = [];
