@@ -2,37 +2,29 @@ import '../SCSS/App.scss';
 import React from 'react';
 import {Typography} from '@material-ui/core';
 import '../SCSS/Communities.scss';
+import { getJoinedComs } from 'amino.js';
 
 export default class Communities extends React.Component {
 
     state = {
-        communities: [
-            {
-                picture: 'https://avatars1.githubusercontent.com/u/38384013?v=4',
-                title: 'Community 1',
-                id: '001',
-            },
-            {
-                picture: 'https://avatars1.githubusercontent.com/u/38384013?v=4',
-                title: 'Community 2',
-                id: '002',
-            },
-            {
-                picture: 'https://avatars1.githubusercontent.com/u/38384013?v=4',
-                title: 'Community 3',
-                id: '003',
-            },
-            {
-                picture: 'https://avatars1.githubusercontent.com/u/38384013?v=4',
-                title: 'Community 4',
-                id: '004',
-            },
-            {
-                picture: 'https://avatars1.githubusercontent.com/u/38384013?v=4',
-                title: 'Community 5',
-                id: '0015',
-            },
-        ]
+        communities: [],
+    }
+
+    async fetchCommunities(){
+        try{
+            const communities = await getJoinedComs();
+            console.log(communities);
+            this.setState({
+                communities: communities.coms,
+            });
+        }
+        catch(error){
+            console.error(error);
+        }
+    }
+
+    componentDidMount(){
+        this.fetchCommunities();
     }
 
     render(){
@@ -74,7 +66,7 @@ export default class Communities extends React.Component {
                                                 }}
                                             >
                                                 {
-                                                    community.title
+                                                    community.name
                                                 }
                                             </Typography>
                                         </div>
