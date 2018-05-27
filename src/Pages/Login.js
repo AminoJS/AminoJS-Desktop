@@ -2,52 +2,44 @@ import '../SCSS/App.scss';
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-var Amino = require('amino.js');
+import * as Amino from 'amino.js';
 
 export default class FeaturedPosts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            email: '',
             password: ''
         };
-    
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-    
-        this.setState({
-            [name]: value
-        });
-    }
+
     
     async handleSubmit(event) {
-        alert('USR: ' + this.state.username);
-        alert('PWD: ' + this.state.password);
-        const sid = await Amino.login(this.state.username, this.state.password);
-        localStorage.setItem('sid', sid);
-        alert('SID: ' + localStorage.getItem('sid'));
         event.preventDefault();
+        try{
+            await Amino.login(this.state.email, this.state.password);
+            localStorage.setItem('email', this.state.email);
+            localStorage.setItem('password', this.state.password);
+            window.location.href = '/';
+        }
+        catch(error){
+            console.error(error);
+        }
     }
     
     render() {
         return (
             <div id="login" style={{width: '100vw', height: '100vh', position: 'relative',}}>
-                <form style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%)'}} onSubmit={this.handleSubmit}>
+                <form style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%)'}} onSubmit={e => this.handleSubmit(e)}>
                     <label>
-                        Username:
-                        <TextField name="username" label="Username" value={this.state.value} onChange={this.handleInputChange} />
+                        Email:
+                        <TextField type="text" label="Email" value={this.state.value} onChange={e => this.setState({email: e.target.value})} />
                     </label>
                     <label>
                         Password:
-                        <TextField name="password" label="Password" value={this.state.value} onChange={this.handleInputChange} />
+                        <TextField type="password" label="Password" value={this.state.value} onChange={e => this.setState({password: e.target.value})} />
                     </label>
-                    <Button variant="raised" type="submit" value="Submit" />
+                    <Button variant="raised" type="submit">Submit</Button>
                 </form>
             </div>
         );
