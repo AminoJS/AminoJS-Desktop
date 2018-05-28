@@ -2,6 +2,13 @@
 
     #drag_bar{
         -webkit-app-region: drag;
+
+        &.win{
+            left: 0;
+        }
+        &.osx{
+            right: 0;
+        }
     }
 
     #win_control_buttons{
@@ -19,6 +26,41 @@
         div:hover{
             color: #FFF;
             background: rgba(255, 255, 255, 0.8);
+        }
+
+        &.osx{
+
+            top: 15% !important;
+
+            &.blur{
+                filter: grayscale(1);
+            }
+
+            div{
+                background: skyblue;
+                border-radius: 50%;
+                width: 0.8em !important;
+                height: 0.8em !important;
+                margin: 0em 0.3em;
+            }
+
+            .win_icon{
+                display: none;
+            }
+
+            #close{
+                background: lightcoral;
+            }
+
+            #min{
+                background: #fdbc40;
+            }
+
+            #max{
+                background: #34c749;
+            }
+
+            
         }
 
     }
