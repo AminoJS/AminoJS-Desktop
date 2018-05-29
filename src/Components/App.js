@@ -61,7 +61,13 @@ export default class App extends React.Component {
 
         if(email !== null && password !== null){
             return (
-                <div>
+                <div
+                    style={{
+                        background: '#36393F',
+                        width: '100vw',
+                        height: '100vh',
+                    }}
+                >
                     <TitleBar />
                     <Communities/>
                     <div id="left_bar" style={{
@@ -85,18 +91,8 @@ export default class App extends React.Component {
                         position: 'absolute',
                         top: '70px',
                         left: '325px',
-                        margin: '0.6em', }}>
-                        
-                        <div style={{
-                            background: '#36393F',
-                            width: '100vw',
-                            height: '100vh',
-                            position: 'fixed',
-                            top: '1.5em',
-                            left: '-25px',
-                            zIndex: -1, }}>
-                            {/* Background color */}
-                        </div>
+                        margin: '0.6em',
+                    }}>
                         <AppRouter />    
                     </div>
 
