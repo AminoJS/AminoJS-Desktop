@@ -8,7 +8,13 @@ export default class AppRouter extends React.Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={FeaturedPosts}/>
+                    <div
+                        style={{
+                            overflowY: 'scroll'
+                        }}
+                    >
+                        <Route exact path="/" component={FeaturedPosts}/>
+                    </div>
                 </Switch>
             </BrowserRouter>
         );
