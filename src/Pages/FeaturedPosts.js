@@ -62,21 +62,27 @@ export default class FeaturedPosts extends React.Component {
 
     render(){
         return (
-            <div id="featured_posts_container">
-                
-                <div id="posts">
-                    {
-                        (() => {
-                            const posts = [];
-                            this.state.posts.map(post => {
-                                return posts.push(
-                                    <BlogPost post={post} key={post.id} />
-                                );
-                            });
-                            return posts;
-                        })()
-                    }
-                </div>
+            <div id="featured_posts_container"
+                style={{
+                    overflowY: 'scroll',
+                    height: '89vh',
+                    /*
+                        ?
+                        The height property : more value = the less user can scroll, and less value = the more user can scroll lul
+                    */
+                }}
+            >
+                {
+                    (() => {
+                        const posts = [];
+                        this.state.posts.map(post => {
+                            return posts.push(
+                                <BlogPost post={post} key={post.id} />
+                            );
+                        });
+                        return posts;
+                    })()
+                }
             </div>
         );
     }
